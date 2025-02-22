@@ -21,6 +21,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_22_113718) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.integer "item_id"
+    t.string "status"
+    t.integer "duration"
+    t.integer "seeker_id"
+    t.integer "provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "address"
