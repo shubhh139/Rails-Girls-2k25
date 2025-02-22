@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
+  # Authentication routes
+  devise_for :users
+
+  # Public routes (accessible without login)
+  get "/home", to: "home#index", as: :home
+  get "/up", to: "rails/health#show", as: :rails_health_check
+
+  # Private routes (accessible only after login)
+  authenticated :user do
+    root "home#index", as: :authenticated_root
+    get "/dashboard", to: "home#dashboard", as: :dashboard
+    resources :items
+    resources :requests
+  end
+
+  # Set the LandingPagesController as the root controller
   root "landing_pages#index"
 
-  devise_for :users
-  resources :items
-  resources :requests
-  resources :users
-  # root to: "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

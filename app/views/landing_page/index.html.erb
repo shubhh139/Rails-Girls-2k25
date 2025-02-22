@@ -1,9 +1,22 @@
 <!-- app/views/landing_pages/index.html.erb -->
 
-<h1>Welcome to BorrowBridge!</h1>
-<div class="banner">
-  <img src="<%= asset_path('banner.png') %>" alt="Banner Image">
-</div>
-<div class="call-to-action">
-  <%= link_to "Create User", new_user_path, class: "btn btn-primary" %>
-</div>
+<% if user_signed_in? %>
+  <!-- Banner -->
+  <div class="banner">
+    <img src="<%= asset_path('banner.png') %>" alt="Banner Image">
+  </div>
+
+  <!-- Two options -->
+  <div class="options">
+    <%= link_to "List an Item", items_path %> |
+    <%= link_to "Add a Request", requests_path %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+  </div>
+<% else %>
+  <!-- Public content -->
+  <h1>Welcome to BorrowBridge!</h1>
+  <div class="call-to-action">
+    <%= link_to "Create User", new_user_path, class: "btn btn-primary" %> |
+    <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+  </div>
+<% end %>
