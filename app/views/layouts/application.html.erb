@@ -7,10 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <!-- PicoCSS CDN -->
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css", rel: "stylesheet", media: "all" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="container">
     <%= yield %>
   </body>
 </html>
