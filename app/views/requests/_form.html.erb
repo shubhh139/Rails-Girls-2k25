@@ -12,31 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :item_id, style: "display: block" %>
-    <%= form.number_field :item_id %>
+    <%= form.label :item_id, "Select Item", style: "display: block" %>
+    <%= form.collection_select :item_id, Item.all, :id, :name, { prompt: "Select an item" }, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :seeker_id, "Select Seeker", style: "display: block" %>
+    <%= form.collection_select :seeker_id, User.where(role: 'seeker'), :id, :name, { prompt: "Select a seeker" }, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.text_field :status, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :duration, style: "display: block" %>
-    <%= form.number_field :duration %>
+    <%= form.label :duration, "Duration (in days)", style: "display: block" %>
+    <%= form.number_field :duration, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :seeker_id, style: "display: block" %>
-    <%= form.number_field :seeker_id %>
-  </div>
-
-  <div>
-    <%= form.label :provider_id, style: "display: block" %>
-    <%= form.number_field :provider_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

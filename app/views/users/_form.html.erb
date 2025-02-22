@@ -33,7 +33,12 @@
 
   <div>
     <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
+    <%= form.password_field :password %> <!-- Use password_field for security -->
+  </div>
+
+  <div>
+    <%= form.label :role, style: "display: block" %>
+    <%= form.select :role, ['provider', 'seeker'].map(&:camelize), prompt: "Select a role" %>
   </div>
 
   <div>
