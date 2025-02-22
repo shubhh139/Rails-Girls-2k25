@@ -1,15 +1,46 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.banner {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .banner img {
+    width: 80%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #1a2cd3;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .call-to-action {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .call-to-action .btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .call-to-action .btn:hover {
+    background-color: #3e8e41;
+  }
+
